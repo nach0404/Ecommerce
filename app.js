@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = 5500;
 
 // Express usa EJS para renderizar las vistas
 app.set('view engine', 'ejs');
@@ -38,5 +38,5 @@ app.get('/login', (req, res) => {
 // -- ARRANCAR EL SERVIDOR --
 
 app.listen(PORT, () => {
-    console.log('Servidor funcionando en http://localhost:${PORT}');
-})
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});

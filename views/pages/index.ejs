@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce</title>
+  <meta charset="UTF-8">
+  <title>Mi Ecommerce</title>
+  <link rel="stylesheet" href="">
 </head>
 <body>
-    <h1>Pagina de Inicio</h1>
-    <p>Sprint 1</p>
+
+  <%- include('../partials/header') %>
+
+  <main>
+    <h1>Productos destacados</h1>
+
+    <section class="products">
+      <% products.forEach(product => { %>
+        <%- include('../partials/productCard', { product: product }) %>
+      <% }) %>
+    </section>
+  </main>
+
+  <%- include('../partials/footer') %>
+
 </body>
 </html>
