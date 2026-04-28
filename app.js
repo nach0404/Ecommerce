@@ -9,6 +9,8 @@ app.set('views', './views');
 // Archivos estaticos (CSS, imagenes)
 app.use(express.static('assets'));
 
+app.use(express.urlencoded({ extended: true }));
+
 // -- RUTAS --
 
 app.get('/', (req, res) => {
