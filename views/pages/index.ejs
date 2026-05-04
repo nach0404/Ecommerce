@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Mi Ecommerce</title>
-  <link rel="stylesheet" href="">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -11,294 +16,58 @@
 
   <main>
 
+    <!-- ICONOS -->
+    <section class="caja-iconos">
+      <% const categorias = [
+        { icon: "fa-tv", nombre: "Electronica" },
+        { icon: "fa-burger", nombre: "Alimentos" },
+        { icon: "fa-bottle-water", nombre: "Bebidas" },
+        { icon: "fa-shirt", nombre: "Indumentaria" },
+        { icon: "fa-gamepad", nombre: "Juegos" },
+        { icon: "fa-car-rear", nombre: "Automotor" },
+        { icon: "fa-couch", nombre: "Hogar" },
+        { icon: "fa-gift", nombre: "Otros" }
+      ]; %>
 
-    <%# CONTENEDOR DE ICONOS %>
-      <section class="caja-iconos">
-        <div class="item">
-        <div class="iconos">
-         <i class="fa-solid fa-tv">
-          </i></div>
-            <h4>Electronica</h4>
-        </div>
-        <div class="item">
-          <div class="iconos">
-         <i class="fa-solid fa-burger">
-          </i></div>
-            <h4>Alimentos</h4>
-        </div>
-        <div class="item">
-          <div class="iconos">
-         <i class="fa-solid fa-bottle-water">
-          </i></div>
-         <h4>Bebidas</h4>
-        </div>
+      <% categorias.forEach(cat => { %>
         <div class="item">
           <div class="iconos">
-         <i class="fa-solid fa-shirt">
-          </i></div>
-         <h4>Indumentaria</h4>
+            <i class="fa-solid <%= cat.icon %>"></i>
+          </div>
+          <h4><%= cat.nombre %></h4>
         </div>
-        <div class="item">
-          <div class="iconos">
-         <i class="fa-solid fa-gamepad">
-          </i></div>
-         <h4>Juegos</h4>
-        </div>
-        <div class="item">
-          <div class="iconos">
-         <i class="fa-solid fa-car-rear">
-          </i></div>
-         <h4>Automotor</h4>
-        </div>
-        <div class="item">
-          <div class="iconos">
-         <i class="fa-solid fa-couch">
-          </i></div>
-         <h4>Hogar</h4>
-        </div>
-        <div class="item">
-          <div class="iconos">
-         <i class="fa-solid fa-gift">
-          </i></div>
-         <h4>Otros</h4>
-        </div>
-      </section>
-
-      <%# BANNER PUBLICITARIO %>
-        <section class="banner">
-          <div class="banner-card">
-            <img src="" alt="Nombre de publicidad">
-          
-            <div class="texto-encima">
-              <h3>¡50% OFF!</h3>
-              <p> <br> <br> </p>
-            </div>
-          </div>
-
-          <div class="banner-card">
-            <img src="" alt="">
-          
-            <div class="texto-encima">
-              <h3>¡1 mes GRATIS!</h3>
-              <p>Canjea a partir de 30.000 puntos <br>y obtene 1 mes de HBO Max sin cargo</p>
-            </div>
-          </div>
-        </section>
-
-
-  <%# SECCION DE PRODUCTOS %>
-    <h3 class="titulo-productos">Tambien podria interesarte</h3>
-
-    <div class="productos-grid">  
-        <section class="caja-producto">
-            <div class="producto">
-              <img src="/assets/imagenes/Alimentos-Galletas.png" alt="Galletas Mediatarde">
-            </div>
-            <a href="/product.ejs">
-              <div class="descripcion">
-               <div class="nombre">
-                <h4>Galletas Mediatarde Clásicas - Galletitas Cracker</h4>
-               </div>
-            
-               <div class="puntos-producto">
-                 <span class="cantidad-puntos">2.000</span>
-                 <span class="puntos">PUNTOS</span>
-                </div>
-              </div>
-            </a>
-        </section>
-
-        <section class="caja-producto">
-          <div class="producto">
-            <img src="/assets/imagenes/Alimentos-Mayonesa.png" alt="Mayonesa Natura">
-          </div>
-              
-          <div class="descripcion">
-            <div class="nombre">
-              <h4>Mayonesa Natura - 250cm</h4>
-            </div>
-            <div class="puntos-producto">
-              <span class="cantidad-puntos">4.000</span>
-              <span class="puntos">PUNTOS</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="caja-producto">
-          <div class="producto">
-             <img src="/assets/imagenes/Alimentos-Quaker.png" alt="Quaker">
-          </div>
-              
-          <div class="descripcion">
-            <div class="nombre">
-              <h4>Avena integral instantánea - 830g</h4>
-            </div>
-            <div class="puntos-producto">
-              <span class="cantidad-puntos">6.000</span>
-              <span class="puntos">PUNTOS</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="caja-producto">
-          <div class="producto">
-             <img src="/assets/imagenes/Alimentos-Rapiditas.png" alt="Rapiditas">
-          </div>
-              
-          <div class="descripcion">
-            <div class="nombre">
-              <h4>Rapiditas Clásicas - 8u</h4>
-            </div>
-            <div class="puntos-producto">
-              <span class="cantidad-puntos">6.500</span>
-              <span class="puntos">PUNTOS</span>
-            </div>
-          </div>
-        </section>
-    </div>  
-    
-    <%# SECCION DE PRODUCTOS 2 %>
-
-    <h3 class="titulo-productos">Los mas pedidos</h3>
-    <div class="productos-grid">  
-      <section class="caja-producto">
-            <div class="producto">
-              <img src="/assets/imagenes/Bebidas-Cerveza.png" alt="Cerveza Heineken">
-            </div>
-        
-          <div class="descripcion">
-            <div class="nombre">
-              <h4>Cerveza Heineken - Para más frescura</h4>
-            </div>
-            
-            <div class="puntos-producto">
-              <span class="cantidad-puntos">9.000</span>
-              <span class="puntos">PUNTOS</span>
-            </div>
-          </div>
-      </section>
-
-        <section class="caja-producto">
-          <div class="producto">
-            <img src="/assets/imagenes/Bebidas-Baggio.png" alt="Jugo Baggio">
-          </div>
-              
-          <div class="descripcion">
-            <div class="nombre">
-              <h4>Jugo baggio - Multifruta</h4>
-            </div>
-            <div class="puntos-producto">
-              <span class="cantidad-puntos">7.000</span>
-              <span class="puntos">PUNTOS</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="caja-producto">
-          <div class="producto">
-             <img src="/assets/imagenes/Bebidas-Red label.png" alt="Whisky Escocés">
-          </div>
-              
-          <div class="descripcion">
-            <div class="nombre">
-              <h4>Red Label</h4>
-            </div>
-            <div class="puntos-producto">
-              <span class="cantidad-puntos">38.000</span>
-              <span class="puntos">PUNTOS</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="caja-producto">
-          <div class="producto">
-             <img src="/assets/imagenes/Electrónica-Auriculares.png" alt="Auriculares">
-          </div>
-              
-          <div class="descripcion">
-            <div class="nombre">
-              <h4>Auriculares inalambricos</h4>
-            </div>
-            <div class="puntos-producto">
-              <span class="cantidad-puntos">4.000</span>
-              <span class="puntos">PUNTOS</span>
-            </div>
-          </div>
-        </section>
-    </div>  
-
-    <div class="productos-grid">  
-      <section class="caja-producto">
-          <div class="producto">
-            <img src="/assets/imagenes/Electrónica-Smartwatch.png" alt="Reloj inteligente">
-          </div>
-        
-          <div class="descripcion">
-            <div class="nombre">
-              <h4>Smartwatch</h4>
-            </div>
-            
-            <div class="puntos-producto">
-              <span class="cantidad-puntos">15.000</span>
-              <span class="puntos">PUNTOS</span>
-            </div>
-          </div>
-      </section>
-
-        <section class="caja-producto">
-          <div class="producto">
-            <img src="/assets/imagenes/Electrónica-Iphone.png" alt="XXXXX">
-          </div>
-              
-          <div class="descripcion">
-            <div class="nombre">
-              <h4>NOMBRE DEL PRODUCTO O SERVICIOl</h4>
-            </div>
-            <div class="puntos-producto">
-              <span class="cantidad-puntos">XX.XXX</span>
-              <span class="puntos">PUNTOS</span>
-            </div>
-          </div>
-        </section>
-
-      <section class="caja-producto">
-          <div class="producto">
-            <img src="/img/index/cuadricula.jpg" alt="XXXXX">
-          </div>
-              
-        <div class="descripcion">
-            <div class="nombre">
-              <h4>NOMBRE DEL PRODUCTO O SERVICIO</h4>
-            </div>
-            <div class="puntos-producto">
-              <span class="cantidad-puntos">XX.XXX</span>
-              <span class="puntos">PUNTOS</span>
-            </div>
-         </div>
-      </section>
-
-      <section class="caja-producto">
-          <div class="producto">
-            <img src="/img/index/cuadricula.jpg" alt="XXXXX">
-          </div>
-              
-        <div class="descripcion">
-          <div class="nombre">
-            <h4>NOMBRE DEL PRODUCTO O SERVICIO</h4>
-          </div>
-          <div class="puntos-producto">
-            <span class="cantidad-puntos">XX.XXX</span>
-            <span class="puntos">PUNTOS</span>
-          </div>
-        </div>
-      </section>
-    </div>  
-
-    <section class="products">
-      <% products.forEach(product => { %>
-        <%- include('../partials/productCard', { product: product }) %>
       <% }) %>
     </section>
+
+
+    <!-- BANNER -->
+    <section class="banner">
+      <div class="banner-card">
+        <img src="/assets/banner1.webp" alt="Promo 50% OFF">
+        <div class="texto-encima">
+          <h3>¡50% OFF!</h3>
+        </div>
+      </div>
+
+      <div class="banner-card">
+        <img src="/assets/banner2.webp" alt="Promo HBO Max">
+        <div class="texto-encima">
+          <h3>¡1 mes GRATIS!</h3>
+          <p>Canjea desde 30.000 puntos</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PRODUCTOS -->
+    <h3 class="titulo-productos">Te podría interesar</h3>
+
+    <section class="productos-grid">
+      <% products.forEach(product => { %>
+        <%- include('../partials/productCard', { product }) %>
+      <% }) %>
+    </section>
+
   </main>
 
   <%- include('../partials/footer') %>
