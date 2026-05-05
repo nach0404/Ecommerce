@@ -2,7 +2,7 @@ const products = [
   // ALIMENTOS
   { id: 1, name: "Galletas Integrales", 
     category: "Alimentos",
-    image: "",
+    image: "/imagenes/alimentos-galletas.webp",
     points: "",
     description: ""
    },
