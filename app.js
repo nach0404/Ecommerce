@@ -1,7 +1,9 @@
 const express = require('express');
+
 const app = express();
 
 const PORT = 5500;
+
 
 const products = require("./data/products");
 
@@ -18,14 +20,16 @@ const categorias = [
 
 
 app.set('view engine', 'ejs');
-app.set('views', './views');
 
+app.set('views', './views');
 
 // archivos estaticos
 app.use(express.static('assets'));
 
-app.use(express.urlencoded({ extended: true }));
 
+app.use(express.urlencoded({
+  extended: true
+}));
 
 // home
 app.get('/', (req, res) => {
@@ -37,7 +41,6 @@ app.get('/', (req, res) => {
 
 });
 
-
 // detalle producto
 app.get('/products/:id', (req, res) => {
 
@@ -46,9 +49,11 @@ app.get('/products/:id', (req, res) => {
   );
 
   if (!product) {
+
     return res
       .status(404)
       .send("Producto no encontrado");
+
   }
 
   res.render('pages/product', {
@@ -57,13 +62,26 @@ app.get('/products/:id', (req, res) => {
 
 });
 
-
+// carrito
 app.get('/cart', (req, res) => {
-  res.render('pages/cart');
+
+  // carrito de prueba
+  const cart = [
+    products[0],
+    products[4],
+    products[7]
+  ];
+
+  res.render('pages/cart', {
+    cart
+  });
+
 });
 
+// checkout
 app.get('/checkout', (req, res) => {
 
+  // carrito de prueba
   const cart = [
     products[0],
     products[4],
@@ -76,14 +94,53 @@ app.get('/checkout', (req, res) => {
 
 });
 
+// register
 app.get('/register', (req, res) => {
+
   res.render('pages/register');
+
 });
 
+
+
+app.post('/register', (req, res) => {
+
+  const {
+    name,
+    email,
+    password
+  } = req.body;
+
+  console.log(name);
+  console.log(email);
+  console.log(password);
+
+  res.send("Usuario registrado");
+
+});
+
+// login
 app.get('/login', (req, res) => {
+
   res.render('pages/login');
+
 });
 
+
+
+app.post('/login', (req, res) => {
+
+  const {
+    username,
+    password
+  } = req.body;
+
+  console.log(username);
+  console.log(password);
+
+  res.send("Login recibido");
+
+});
 
 // server
 app.listen(PORT, () => {
