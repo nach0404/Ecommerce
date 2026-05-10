@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito - Mi Ecommerce</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <%- include ('../partials/header') %>
+
+    <main class="carrito-page">
+
+        <a href="/" class="volver">
+            <i class="fa-solid fa-arrow-left"></i> Volver
+        </a>
+
+        <h2>Productos en tu Carrito</h2>
+
+        <div class="carrito-lista">
+
+            <!-- Producto 1-->
+             <div class="carrito-item">
+                <img src="/imagenes/bebidas-red-label.webp" alt="Whisky Escoces">
+                <span class="carrito-nombre">Whisky Escoces Red Label</span>
+                <button class="carrito-quitar">Quitar</button>
+                <div class="carrito-control">
+                    <button>-</button>
+                    <span>1</span>
+                    <button>+</button>
+                </div>
+                <span class="carrito-puntos">12.000 <small>PUNTOS</small></span>
+             </div>
+
+
+            <!-- Producto 2-->
+             <div class="carrito-item">
+                <img src="/imagenes/juegos-nintendo.webp" alt="Nintendo Switch">
+                <span class="carrito-nombre">Nintendo Switch</span>
+                <button class="carrito-quitar">Quitar</button>
+                <div class="carrito-control">
+                    <button>-</button>
+                    <span>1</span>
+                    <button>+</button>
+                </div>
+                <span class="cantidad-puntos">55.000 <small>PUNTOS</small></span>
+             </div>
+
+
+            <!-- Producto 3-->
+             <div class="carrito-item">
+                <img src="/imagenes/indumentaria-blusas.webp" alt="Blusas">
+                <span class="carrito-nombre">Blusas</span>
+                <button class="carrito-quitar">Quitar</button>
+                <div class="carrito-control">
+                    <button>-</button>
+                    <span>1</span>
+                    <button>+</button>
+                </div>
+                <span class="cantidad-puntos">4.900 <small>PUNTOS</small></span>
+             </div>
+        </div>
+
+        <div class="carrito-total">
+            <span>Total de puntos</span>
+            <strong>71.900</strong>
+        </div>
+
+        <div class="carrito-acciones">
+            <a href="/checkout">
+                <button class="boton-pagar">Ir a Pagar</button>
+            </a>
+        </div>
+
+    </main>
+
+    <%- include ('../partials/footer') %>
+    
+</body>
+</html>

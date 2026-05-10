@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title> <%= product.name %> - Mi Ecommerce</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <%- include ('../partials/header') %>
+
+    <main class="producto-detalle">
+        
+        <a href="/">Volver al Inicio</a>
+
+        <div class="producto-detalle-card">
+
+            <!-- Imagen del producto -->
+            <div class="producto-detalle-imagen">
+                <img src="<%= product.image %>" alt="<%= product.name %>">
+            </div>
+
+            <!-- Info del producto -->
+            <div class="producto-detalle-info">
+
+                <span class="producto-categoria"> <%= product.category %> </span>
+
+                <h1> <%= product.name %> </h1>
+
+                <p class="producto-descripcion"> <%= product.description %> </p>
+
+                <div class="producto-puntos">
+                    <span class="cantidad-puntos"> <%= product.points %> </span>
+                    <span class="puntos">PUNTOS</span>
+                </div>
+
+                <a href="/cart">
+                    <button class="boton-agregar">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        Agregar al carrito
+                    </button>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <%- include ('../partials/footer') %>
+    
+</body>
+</html>

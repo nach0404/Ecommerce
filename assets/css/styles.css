@@ -1,0 +1,30 @@
+/* VARIABLES GLOBALES */
+:root {
+  --color-primary: ;       /*  color principal */
+  --color-dark: #222;          /*  botones, footer */
+  --color-bg: ;            /*  fondo general */
+  --color-white: #ddd;         /*  cards, formularios */
+  --color-text: ;          /* texto principal */
+  --color-text-muted: ;    /* texto secundario */
+  --color-border: ;        /* bordes suaves */
+
+  --border-radius: ;          /* redondeo general */
+  --border-radius-sm: ;        /* redondeo pequeño */
+  --shadow: ; /* sombra suave de cards */
+
+  --font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* RESET Y BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+}

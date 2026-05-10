@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Ecommerce</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/index.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+</head>
+<body>
+
+  <%- include('../partials/header') %>
+
+  <main>
+
+    <!-- ICONOS -->
+    <section class="caja-iconos">
+      <% const categorias = [
+        { icon: "fa-tv", nombre: "Electronica" },
+        { icon: "fa-burger", nombre: "Alimentos" },
+        { icon: "fa-bottle-water", nombre: "Bebidas" },
+        { icon: "fa-shirt", nombre: "Indumentaria" },
+        { icon: "fa-gamepad", nombre: "Juegos" },
+        { icon: "fa-car-rear", nombre: "Automotor" },
+        { icon: "fa-couch", nombre: "Hogar" },
+        { icon: "fa-gift", nombre: "Otros" }
+      ]; %>
+
+      <% categorias.forEach(cat => { %>
+        <div class="item">
+          <div class="iconos">
+            <i class="fa-solid <%= cat.icon %>"></i>
+          </div>
+          <h4><%= cat.nombre %></h4>
+        </div>
+      <% }) %>
+    </section>
+
+
+    <!-- BANNER -->
+    <section class="banner">
+      <div class="banner-card">
+        <img src="/assets/banner1.webp" alt="Promo 50% OFF">
+        <div class="texto-encima">
+          <h3>¡50% OFF!</h3>
+        </div>
+      </div>
+
+      <div class="banner-card">
+        <img src="/assets/banner2.webp" alt="Promo HBO Max">
+        <div class="texto-encima">
+          <h3>¡1 mes GRATIS!</h3>
+          <p>Canjea desde 30.000 puntos</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PRODUCTOS -->
+    <h3 class="titulo-productos">Te podría interesar</h3>
+
+    <section class="productos-grid">
+      <% products.forEach(product => { %>
+        <%- include('../partials/productCard', { product }) %>
+      <% }) %>
+    </section>
+
+  </main>
+
+  <%- include('../partials/footer') %>
+
+</body>
+</html>

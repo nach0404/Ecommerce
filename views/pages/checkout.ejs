@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout - Mi Ecommerce</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/checkout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <%- include('../partials/header') %>
+
+  <main class="checkout-page">
+
+    <div class="checkout-formularios">
+
+      <!-- Direccion de envio -->
+      <section class="checkout-card">
+        <h2>Dirección de envío</h2>
+        <form>
+          <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" name="direccion" placeholder="Calle y Número">
+          </div>
+          <div class="form-group">
+            <label for="ciudad">Ciudad</label>
+            <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad">
+          </div>
+          <div class="form-group">
+            <label for="provincia">Provincia</label>
+            <input type="text" id="provincia" name="provincia" placeholder="Provincia">
+          </div>
+          <div class="form-group">
+            <label for="cp">Código Postal</label>
+            <input type="text" id="cp" name="cp" placeholder="Código Postal">
+          </div>
+        </form>
+      </section>
+
+      <!-- Metodo de pago -->
+      <section class="checkout-card">
+        <h2>Método de pago</h2>
+        <form>
+          <div class="form-group">
+            <label>
+              <input type="radio" name="payment" value="tarjeta" checked>
+              Tarjeta de crédito / Débito
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="radio" name="payment" value="mercadopago">
+              Mercado Pago
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="radio" name="payment" value="transferencia">
+              Transferencia bancaria
+            </label>
+          </div>
+        </form>
+      </section>
+
+      <!-- Informacion de la tarjeta -->
+      <section class="checkout-card">
+        <h2>Información de la tarjeta</h2>
+        <form>
+          <div class="form-group">
+            <label for="nro-tarjeta">Número de Tarjeta</label>
+            <input type="text" id="nro-tarjeta" name="nro-tarjeta" 
+                   inputmode="numeric" placeholder="XXXX XXXX XXXX XXXX">
+          </div>
+          <div class="form-group">
+            <label for="vencimiento">Fecha de Vencimiento</label>
+            <input type="text" id="vencimiento" name="vencimiento" placeholder="MM/AA">
+          </div>
+          <div class="form-group">
+            <label for="cvv">Código de Seguridad</label>
+            <input type="password" id="cvv" name="cvv" placeholder="XXX">
+          </div>
+        </form>
+      </section>
+
+    </div>
+
+    <!-- Resumen del pedido -->
+    <aside class="checkout-resumen">
+      <div class="resumen-card">
+        <h2>Resumen del pedido</h2>
+
+        <div class="resumen-item">
+          <img src="/imagenes/bebidas-red-label.webp" alt="Whisky Escocés">
+          <div class="resumen-item-info">
+            <p>Whisky Escocés Red Label</p>
+            <span>1 unidad</span>
+          </div>
+          <p class="resumen-item-precio">12.000 <small>PUNTOS</small></p>
+        </div>
+
+        <hr>
+
+        <div class="resumen-total">
+          <p>Subtotal <span>12.000 PUNTOS</span></p>
+          <p>Envío <span class="gratis">Gratis</span></p>
+          <hr>
+          <p>Total <strong>12.000 PUNTOS</strong></p>
+        </div>
+
+        <a href="#">
+          <button class="boton-confirmar">Confirmar Compra</button>
+        </a>
+      </div>
+    </aside>
+
+  </main>
+
+  <%- include('../partials/footer') %>
+
+</body>
+</html>
