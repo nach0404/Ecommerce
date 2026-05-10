@@ -1,80 +1,277 @@
-<link rel="stylesheet" href="css/checkout.css">
-<%- include('../partials/header') %>
+<!DOCTYPE html>
+<html lang="es">
 
-<main class="main">
-    
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Checkout</title>
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/checkout.css">
+
+</head>
+
+<body>
+
+  <%- include('../partials/header') %>
+
+
+  <main class="checkout-page">
+
     <div class="forms-columna">
-        <section class="tarjeta">
-            <h2>Dirección de envío</h2>
-            <div class="input">
-                <label>Dirección</label>
-                <input type="text" placeholder="Calle y Número">
-                <label>Ciudad</label>
-                <input type="text" placeholder="Ciudad">
-                <label>Provincia</label>
-                <input type="text" placeholder="Provincia">
-                <label>Código Postal</label>
-                <input type="text" placeholder="Código Postal">
-            </div>
-            </section>
 
-        <section class="tarjeta">
-            <h2>Método de pago</h2>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="payment" checked> 
-                    Tarjeta de crédito / Débito
-                </label>
-                <label>
-                    <input type="radio" name="payment"> 
-                    Mercado Pago
-                </label>
-                <label>
-                    <input type="radio" name="payment"> 
-                    Transferencia bancaria
-                </label>
-            </div>
-        </section>
-        
-        <section class="tarjeta">
-            <h2>Información de la tarjeta</h2>
-            <div class="input">
-                <label>Número de Tarjeta</label>
-                <input type="text" placeholder="XXXX XXXX XXXX XXXX">
-                <label>Fecha de Vencimiento</label>
-                <input type="text" placeholder="MM/AA">
-                <label>Código de Seguridad</label>
-                <input type="text" placeholder="XXX">
-            </div>
-        </section>
+
+      <section class="tarjeta">
+
+        <h2>Dirección de envío</h2>
+
+        <div class="input-group">
+
+          <label>Dirección</label>
+
+          <input
+            type="text"
+            placeholder="Calle y número"
+          >
+
+
+          <label>Ciudad</label>
+
+          <input
+            type="text"
+            placeholder="Ciudad"
+          >
+
+
+          <label>Provincia</label>
+
+          <input
+            type="text"
+            placeholder="Provincia"
+          >
+
+
+          <label>Código Postal</label>
+
+          <input
+            type="text"
+            placeholder="Código Postal"
+          >
+
+        </div>
+
+      </section>
+
+
+
+      <!-- METODO DE PAGO -->
+      <section class="tarjeta">
+
+        <h2>Método de pago</h2>
+
+        <div class="radio-group">
+
+          <label>
+
+            <input
+              type="radio"
+              name="payment"
+              checked
+            >
+
+            Tarjeta crédito / débito
+
+          </label>
+
+
+          <label>
+
+            <input
+              type="radio"
+              name="payment"
+            >
+
+            Mercado Pago
+
+          </label>
+
+
+          <label>
+
+            <input
+              type="radio"
+              name="payment"
+            >
+
+            Transferencia bancaria
+
+          </label>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- TARJETA -->
+      <section class="tarjeta">
+
+        <h2>Información de la tarjeta</h2>
+
+        <div class="input-group">
+
+          <label>Número de Tarjeta</label>
+
+          <input
+            type="text"
+            placeholder="XXXX XXXX XXXX XXXX"
+          >
+
+
+          <label>Fecha de vencimiento</label>
+
+          <input
+            type="text"
+            placeholder="MM/AA"
+          >
+
+
+          <label>Código de seguridad</label>
+
+          <input
+            type="text"
+            placeholder="XXX"
+          >
+
+        </div>
+
+      </section>
+
     </div>
 
-    <aside class="resum-column">
-        <div class="tarj-res">
-            <h2>Resumen del pedido</h2>
-            
-            <div class="item">
-                <img src="img/productos/ejemplo.jpg" alt="Producto">
-                <div class="info">
-                    <p>El producto fachero</p>
-                    <span>1 unidad</span>
-                </div>
-                <p class="precio">$12.512</p>
+    <aside class="resumen-column">
+
+      <div class="tarj-res">
+
+        <h2>Resumen del pedido</h2>
+
+
+        <!-- PRODUCTOS -->
+        <% cart.forEach(product => { %>
+
+          <div class="item">
+
+            <img
+              src="<%= product.image %>"
+              alt="<%= product.name %>"
+            >
+
+
+            <div class="info">
+
+              <p>
+                <%= product.name %>
+              </p>
+
+              <span>
+                1 unidad
+              </span>
+
             </div>
 
-            <hr>
 
-            <div class="total">
-                <p>Subtotal <span>$12.512</span></p>
-                <p>Envío <span class="gratis">Gratis</span></p>
-                <hr>
-                <p>Total <strong>$12.512</strong></p>
-            </div>
+            <!-- PRECIO -->
+            <p class="precio">
 
-            <button class="btn-confirmar">Confirmar Compra</button>
+              <%= product.points %>
+
+              PUNTOS
+
+            </p>
+
+          </div>
+
+          <hr>
+
+        <% }) %>
+
+
+
+        <!-- TOTAL -->
+        <div class="total">
+
+          <p>
+
+            Subtotal
+
+            <span>
+
+              <%= cart.reduce(
+                (total, product) =>
+                  total + Number(product.points || 0),
+                0
+              ) %>
+
+            </span>
+
+          </p>
+
+
+          <p>
+
+            Envío
+
+            <span class="gratis">
+              Gratis
+            </span>
+
+          </p>
+
+          <hr>
+
+
+          <p>
+
+            Total
+
+            <strong>
+
+              <%= cart.reduce(
+                (total, product) =>
+                  total + Number(product.points || 0),
+                0
+              ) %>
+
+              PUNTOS
+
+            </strong>
+
+          </p>
+
         </div>
+
+
+
+        <!-- BOTON -->
+        <button class="btn-confirmar">
+
+          Confirmar Compra
+
+        </button>
+
+      </div>
+
     </aside>
 
-</main>
+  </main>
 
-<%- include('../partials/footer') %>
+  <%- include('../partials/footer') %>
+
+</body>
+</html>

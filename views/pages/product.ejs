@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title><%= product.name %></title>
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+
+  <%- include('../partials/header') %>
+
+  <main class="product-detail">
+
+    <section class="product-container">
+
+      <!-- IMAGEN -->
+      <div class="product-image">
+
+        <img
+          src="<%= product.image %>"
+          alt="<%= product.name %>"
+        >
+
+      </div>
+
+
+      <div class="product-info">
+
+        <h1>
+          <%= product.name %>
+        </h1>
+
+        <p class="categoria">
+          Categoría:
+          <%= product.category %>
+        </p>
+
+        <p class="puntos">
+          <%= product.points %> PUNTOS
+        </p>
+
+        <p class="descripcion">
+          <%= product.description %>
+        </p>
+
+        <button class="btn-comprar">
+          Canjear producto
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <%- include('../partials/footer') %>
+
+</body>
+
+</html>

@@ -1,32 +1,123 @@
-<link rel="stylesheet" href="css/carrito.css">
-<%- include('../partials/header') %>
+<!DOCTYPE html>
+<html lang="es">
 
-<div class="carrito-page">
-    
-    <a href="/" class="volver">Volver a inicio</a>
+<head>
 
-    <h2>Productos de tu Carrito</h2>
+  <meta charset="UTF-8">
 
-    <div class="producto-card">
-        <img src="" alt="Ejemplo de producto ">
-        <span class="nombre-producto">Nombre del producto</span>
-        <button class="boton-quitar">Quitar</button>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Carrito</title>
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/carrito.css">
+
+</head>
+
+<body>
+
+  <%- include('../partials/header') %>
+
+
+  <main class="carrito-page">
+
+    <!-- VOLVER -->
+    <a href="/" class="volver">
+      ← Volver al inicio
+    </a>
+
+
+    <!-- TITULO -->
+    <h1>
+      Productos de tu carrito
+    </h1>
+
+
+    <!-- PRODUCTOS -->
+    <% cart.forEach(product => { %>
+
+      <section class="producto-card">
+
+        <img
+          src="<%= product.image %>"
+          alt="<%= product.name %>"
+        >
+
+
+        <span class="nombre-producto">
+          <%= product.name %>
+        </span>
+
+
+        <!-- CONTROLES -->
         <div class="control">
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
+
+          <button>-</button>
+
+          <span>1</span>
+
+          <button>+</button>
+
         </div>
-        <span class="pesos">20.000</span>
+
+
+        <!-- PRECIO -->
+        <span class="pesos">
+          <%= product.points %> PUNTOS
+        </span>
+
+
+        <button class="boton-quitar">
+          Quitar
+        </button>
+
+      </section>
+
+    <% }) %>
+
+
+
+    <!-- TOTAL -->
+    <section class="total">
+
+      <h3>Total a pagar</h3>
+
+      <span>
+
+        <%= cart.reduce(
+          (total, product) =>
+            total + Number(product.points || 0),
+          0
+        ) %>
+
+        PUNTOS
+
+      </span>
+
+    </section>
+
+
+
+    <!-- PAGAR -->
+    <div class="pie-carrito">
+
+      <a href="/checkout">
+
+        <button class="boton-pagar">
+          Ir a pagar
+        </button>
+
+      </a>
+
     </div>
 
-    <div class="total">
-        <span>Total a pagar</span>
-    </div>
+  </main>
 
-    <div class="pie-carrito"><a href="/checkout">
-        <button class="boton-pagar">Ir a Pagar</button>
-        </a>
-    </div>
-</div>
 
-<%- include('../partials/footer') %>
+  <%- include('../partials/footer') %>
+
+</body>
+</html>

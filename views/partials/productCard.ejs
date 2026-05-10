@@ -1,4 +1,5 @@
 <section class="caja-producto">
+
   <a href="/products/<%= product.id %>">
 
     <div class="producto">
@@ -10,15 +11,23 @@
     </div>
 
     <div class="descripcion">
+
       <div class="nombre">
         <h4><%= product.name %></h4>
       </div>
 
       <div class="puntos-producto">
-        <span class="cantidad-puntos"><%= product.points %></span>
-        <span class="puntos">PUNTOS</span>
+        <span class="cantidad-puntos">
+          <%= product.points %>
+        </span>
+
+        <span class="puntos">
+          PUNTOS
+        </span>
       </div>
+
     </div>
 
   </a>
+
 </section>

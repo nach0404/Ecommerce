@@ -2,73 +2,130 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+
+  <meta 
+    name="viewport" 
+    content="width=device-width, initial-scale=1.0"
+  >
+
   <title>Mi Ecommerce</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/productCard.css">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
 </head>
+
 <body>
 
   <%- include('../partials/header') %>
 
+
   <main>
 
-    <!-- ICONOS -->
     <section class="caja-iconos">
-      <% const categorias = [
-        { icon: "fa-tv", nombre: "Electronica" },
-        { icon: "fa-burger", nombre: "Alimentos" },
-        { icon: "fa-bottle-water", nombre: "Bebidas" },
-        { icon: "fa-shirt", nombre: "Indumentaria" },
-        { icon: "fa-gamepad", nombre: "Juegos" },
-        { icon: "fa-car-rear", nombre: "Automotor" },
-        { icon: "fa-couch", nombre: "Hogar" },
-        { icon: "fa-gift", nombre: "Otros" }
-      ]; %>
 
       <% categorias.forEach(cat => { %>
+
         <div class="item">
+
           <div class="iconos">
             <i class="fa-solid <%= cat.icon %>"></i>
           </div>
+
           <h4><%= cat.nombre %></h4>
+
         </div>
+
       <% }) %>
-    </section>
 
+      </section>
 
-    <!-- BANNER -->
     <section class="banner">
+
       <div class="banner-card">
-        <img src="/assets/banner1.webp" alt="Promo 50% OFF">
+
+        <img
+          src="/imagenes/banner-disney.webp"
+          alt="Promo Disney"
+        >
+
         <div class="texto-encima">
+
           <h3>¡50% OFF!</h3>
+
+          <p>
+            Canjeá tus puntos y obtené
+            grandes beneficios
+          </p>
+
         </div>
+
       </div>
+
 
       <div class="banner-card">
-        <img src="/assets/banner2.webp" alt="Promo HBO Max">
+
+        <img
+          src="/imagenes/banner-hbo.webp"
+          alt="Promo HBO Max"
+        >
+
         <div class="texto-encima">
+
           <h3>¡1 mes GRATIS!</h3>
-          <p>Canjea desde 30.000 puntos</p>
+
+          <p>
+            Canjea desde 30.000 puntos
+          </p>
+
         </div>
+
       </div>
+
     </section>
 
+    <% categorias.forEach(cat => { %>
 
-    <!-- PRODUCTOS -->
-    <h3 class="titulo-productos">Te podría interesar</h3>
+      <section class="categoria-section">
 
-    <section class="productos-grid">
-      <% products.forEach(product => { %>
-        <%- include('../partials/productCard', { product }) %>
-      <% }) %>
-    </section>
+        <!-- TITULO -->
+        <div class="categoria-header">
+
+          <h2 class="titulo-productos">
+            <%= cat.nombre %>
+          </h2>
+
+        </div>
+
+        <section class="productos-grid">
+
+          <% products
+            .filter(
+              product => product.category === cat.nombre
+            )
+            .forEach(product => { %>
+
+              <%- include(
+                '../partials/productCard',
+                { product }
+              ) %>
+
+          <% }) %>
+
+        </section>
+
+      </section>
+
+    <% }) %>
+
 
   </main>
+
 
   <%- include('../partials/footer') %>
 
