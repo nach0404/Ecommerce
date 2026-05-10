@@ -21,13 +21,13 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 
-// ARCHIVOS ESTATICOS
+// archivos estaticos
 app.use(express.static('assets'));
 
 app.use(express.urlencoded({ extended: true }));
 
 
-// HOME
+// home
 app.get('/', (req, res) => {
 
   res.render('pages/index', {
@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 });
 
 
-// DETALLE PRODUCTO
+// detalle producto
 app.get('/products/:id', (req, res) => {
 
   const product = products.find(
@@ -85,7 +85,7 @@ app.get('/login', (req, res) => {
 });
 
 
-// SERVER
+// server
 app.listen(PORT, () => {
 
   console.log(
