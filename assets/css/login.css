@@ -1,0 +1,97 @@
+/* LOGIN */
+.auth-container {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary) 40%,
+    var(--color-bg) 40%
+  );
+  padding: 40px 16px;
+}
+
+.auth-container h1 {
+  display: none;
+}
+
+.auth-form {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-form::before {
+  content: '¡Hola!';
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.form-group input {
+  border: 1.5px solid var(--color-border);
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: var(--color-primary);
+}
+
+.auth-form button[type="submit"] {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  border-radius: 999px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  margin-top: 4px;
+}
+
+.auth-form button[type="submit"]:hover {
+  background-color: var(--color-primary);
+}
+
+.auth-links {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.auth-links a {
+  color: var(--color-text);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.auth-links a:hover {
+  color: var(--color-primary);
+}

@@ -1,0 +1,113 @@
+/* PRODUCTO DETALLE */
+.producto-detalle {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 0 32px;
+}
+
+.producto-detalle > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
+  transition: color 0.2s;
+}
+
+.producto-detalle > a:hover {
+  color: var(--color-primary);
+}
+
+/* Card principal */
+.producto-detalle-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  min-height: 500px;
+}
+
+/* Imagen */
+.producto-detalle-imagen {
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.producto-detalle-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Info */
+.producto-detalle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--color-text);
+}
+
+.producto-detalle-info a {
+  margin-top: auto;
+}
+
+.producto-categoria {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.producto-detalle-info h1 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.producto-descripcion {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.producto-puntos {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.producto-puntos .cantidad-puntos {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.producto-puntos .puntos {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.boton-agregar {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+  width: fit-content;
+  margin-top: 0;
+}
+
+.boton-agregar:hover {
+  background-color: var(--color-primary);
+}

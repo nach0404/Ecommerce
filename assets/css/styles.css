@@ -1,21 +1,21 @@
-/* VARIABLES GLOBALES */
+/* Variables globales */
 :root {
-  --color-primary: ;       /*  color principal */
+  --color-primary: #c27b57;       /*  color principal */
   --color-dark: #222;          /*  botones, footer */
-  --color-bg: ;            /*  fondo general */
+  --color-bg: #f2f2f2;            /*  fondo general */
   --color-white: #ddd;         /*  cards, formularios */
-  --color-text: ;          /* texto principal */
-  --color-text-muted: ;    /* texto secundario */
-  --color-border: ;        /* bordes suaves */
+  --color-text: #2b2b2b;          /* texto principal */
+  --color-text-muted: #999999;    /* texto secundario */
+  --color-border: #e0e0e0;        /* bordes suaves */
 
-  --border-radius: ;          /* redondeo general */
-  --border-radius-sm: ;        /* redondeo pequeño */
-  --shadow: ; /* sombra suave de cards */
+  --border-radius: 12px;          /* redondeo general */
+  --border-radius-sm: 8px;        /* redondeo pequeño */
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* sombra suave de cards */
 
   --font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* RESET Y BASE */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -27,4 +27,187 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Botones */
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-family);
+}
+
+/* Imagenes */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---HEADER--- */
+
+.header {
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 32px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-titulo, .logo-mi {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.logo-mi {
+  font-weight: bolder;
+}
+
+
+/* Buscador */
+.header-buscador {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  gap: 8px;
+}
+
+.header-buscador input {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  color: var(--color-text);
+  outline: none;
+}
+
+.header-buscador button {
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 16px;
+  padding: 0;
+}
+
+.header-buscador button:hover {
+  color: var(--color-primary);
+}
+
+/* Acciones (carrito, login, registro) */
+.header-acciones {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.header-carrito {
+  font-size: 22px;
+  color: var(--color-dark);
+  transition: color 0.2s;
+}
+
+.header-carrito:hover {
+  color: var(--color-primary);
+}
+
+.header-login,
+.header-register {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-dark);
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.header-login:hover,
+.header-register:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ---FOOTER--- */
+.footer {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 48px;
+  font-size: 13px;
+}
+
+.footer-redes {
+  display: flex;
+  gap: 16px;
+  font-size: 20px;
+}
+
+.footer-redes a {
+  color: var(--color-white);
+  transition: color 0.2s;
+}
+
+.footer-redes a:hover {
+  color: var(--color-primary);
+}
+
+.footer-copy {
+  color: #AAAAAA;
+}
+
+.footer-apps {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-apps a {
+  color: var(--color-white);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-apps a:hover {
+  color: var(--color-primary);
+}
+
+/* ENLACE VOLVER */
+.volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  margin-bottom: 16px;
+  transition: color 0.2s;
+}
+
+.volver:hover {
+  color: var(--color-primary);
 }
