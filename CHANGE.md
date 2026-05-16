@@ -2,7 +2,7 @@
 
 ## [Sprint 2]
 
-### - 16-05-2026
+### 16-05-2026
 
 ### Agregado
 - Estructura MVC: reorganizacion del proyecto en `src/` y `public/`
