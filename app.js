@@ -54,6 +54,10 @@ app.get('/login', (req, res) => {
   res.render('pages/login');
 });
 
+app.use((req, res) => {
+  res.status(404).render('pages/404');
+});
+
 // SERVER
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);

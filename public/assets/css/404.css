@@ -1,0 +1,28 @@
+.container-404 {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.container-404 h1 {
+  font-size: 4rem;
+  margin: 0;
+  color: #f40034;
+}
+
+.container-404 h2 {
+  margin-bottom: 1rem;
+}
+
+.btn-volver {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  background-color: #f40034;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.btn-volver:hover {
+  background-color: #520617;
+}
