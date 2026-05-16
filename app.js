@@ -1,17 +1,18 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const PORT = 3000;
 
-const products = require("./data/products");
+const products = require("./src/data/products");
 
 // generar categorías dinámicas
 const categorias = [...new Set(products.map(p => p.category))];
 
 app.set('view engine', 'ejs');
-app.set('views', './views');
+app.set('views', path.join(__dirname, 'src/views'));
 
 //Archivos estaticos
-app.use(express.static('assets'));
+app.use(express.static('public'));
 
 app.use(express.urlencoded({ extended: true }));
 
