@@ -120,14 +120,8 @@
   color: var(--color-text-muted);
 }
 
-/* Botón pagar */
-.carrito-acciones {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .boton-pagar {
-  background-color: var(--color-dark);
+  background-color: var(--color-primary);
   color: var(--color-white);
   border-radius: 999px;
   padding: 14px 32px;
@@ -137,5 +131,83 @@
 }
 
 .boton-pagar:hover {
+  background-color: #8d6314;
+}
+
+/* Carrito vacío */
+.carrito-vacio {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.carrito-vacio p {
+  font-size: 20px;
+  margin-bottom: 1rem;
+  color: var(--color-text-muted);
+}
+
+.btn-volver-inicio {
+  display: inline-block;
+  padding: 0.8rem 2rem;
   background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-volver-inicio:hover {
+  background-color: #8d6314;
+}
+
+/* Botones +/- individuales */
+.carrito-control-btn {
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.carrito-control-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Cantidad */
+.carrito-cantidad {
+  font-size: 15px;
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Botón vaciar */
+.boton-vaciar {
+  background-color: #eb2626;
+  color: var(--color-white);
+  border-radius: 999px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.boton-vaciar:hover {
+  background-color: #631c14;
+  color: var(--color-white);
+  border-color: #eb2626;
+}
+
+/* Acciones con dos botones */
+.carrito-acciones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.carrito-acciones form {
+  margin: 0;
 }

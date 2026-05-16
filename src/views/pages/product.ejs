@@ -35,12 +35,12 @@
                     <span class="puntos">PUNTOS</span>
                 </div>
 
-                <a href="/cart">
-                    <button class="boton-agregar">
+                <form action="/cart/add/<%= product.id %>" method="POST">
+                    <button type="submit" class="boton-agregar">
                         <i class="fa-solid fa-cart-plus"></i>
                         Agregar al carrito
                     </button>
-                </a>
+                </form>
             </div>
         </div>
     </main>

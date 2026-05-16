@@ -1,9 +1,18 @@
 const express = require('express');
 const path = require('path');
+const session = require('express-session');
+const cartRoute = require('./src/routes/cartRoute');
 const app = express();
 const PORT = 3000;
 
 const products = require("./src/data/products");
+
+app.use(session({
+  secret: 'miecommerce-secret',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
 
 // generar categorías dinámicas
 const categorias = [...new Set(products.map(p => p.category))];
@@ -13,7 +22,6 @@ app.set('views', path.join(__dirname, 'src/views'));
 
 //Archivos estaticos
 app.use(express.static('public'));
-
 app.use(express.urlencoded({ extended: true }));
 
 // -- RUTAS --
@@ -38,9 +46,7 @@ app.get('/products/:id', (req, res) => {
 });
 
 // OTRAS PÁGINAS
-app.get('/cart', (req, res) => {
-  res.render('pages/cart');
-});
+app.use('/cart', cartRoute);
 
 app.get('/checkout', (req, res) => {
   res.render('pages/checkout');

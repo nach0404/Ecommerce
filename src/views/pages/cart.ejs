@@ -13,66 +13,64 @@
 
     <main class="carrito-page">
 
-        <a href="/" class="volver">
-            ↩ Volver
-        </a>
+        <a href="/" class="volver"> ↩ Volver </a>
 
         <h2>Productos en tu Carrito</h2>
 
-        <div class="carrito-lista">
+        <% if (cartItems.length === 0) { %>
 
-            <!-- Producto 1-->
-             <div class="carrito-item">
-                <img src="/assets/imagenes/bebidas-red-label.webp" alt="Whisky Escoces">
-                <span class="carrito-nombre">Whisky Escoces Red Label</span>
-                <button class="carrito-quitar">Quitar</button>
-                <div class="carrito-control">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
-                </div>
-                <span class="carrito-puntos">12.000 <small>PUNTOS</small></span>
+            <!-- CARRITO VACIO -->
+             <div class="carrito-vacio">
+                <p>El carrito esta vacio😔</p>
+                <a href="/" class="btn-volver-inicio"> Ver productos</a>
              </div>
 
+        <% } else { %>
 
-            <!-- Producto 2-->
-             <div class="carrito-item">
-                <img src="/assets/imagenes/juegos-nintendo.webp" alt="Nintendo Switch">
-                <span class="carrito-nombre">Nintendo Switch</span>
-                <button class="carrito-quitar">Quitar</button>
-                <div class="carrito-control">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
-                </div>
-                <span class="cantidad-puntos">55.000 <small>PUNTOS</small></span>
+            <!-- LISTA DE PRODUCTOS -->
+             <div class="carrito-lista">
+                <% cartItems.forEach(item => { %>
+                    <div class="carrito-item">
+                        <img src="<%= item.image %>" alt="<%= item.name %>">
+                        <span class="carrito-nombre"><%= item.name %></span>
+
+                        <!-- BOTON DISMINUIR -->
+                         <form action="/cart/decrease/<%= item.id %>" method="POST">
+                            <button class="carrito-control-btn">➖</button>
+                         </form>
+
+                         <span class="carrito-cantidad"><%= item.quantity %></span>
+
+                         <!-- BOTON AUMENTAR -->
+                          <form action="/cart/increase/<%= item.id%>" method="POST">
+                            <button class="carrito-control-btn">➕</button>
+                          </form>
+
+                          <span class="carrito-puntos">
+                            <%= item.subtotal.toLocaleString() %> <small>PUNTOS</small>
+                          </span>
+                    </div>
+                <% }) %>
              </div>
 
-
-            <!-- Producto 3-->
-             <div class="carrito-item">
-                <img src="/assets/imagenes/indumentaria-blusas.webp" alt="Blusas">
-                <span class="carrito-nombre">Blusas</span>
-                <button class="carrito-quitar">Quitar</button>
-                <div class="carrito-control">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
-                </div>
-                <span class="cantidad-puntos">4.900 <small>PUNTOS</small></span>
+            <!-- TOTAL -->
+             <div class="carrito-total">
+                <span>Total de puntos</span>
+                <strong><%= total.toLocaleString() %></strong>
              </div>
-        </div>
 
-        <div class="carrito-total">
-            <span>Total de puntos</span>
-            <strong>71.900</strong>
-        </div>
+            <!-- ACCIONES -->
+             <div class="carrito-acciones">
+                  <form action="/cart/clear" method="POST">
+                    <button type="submit" class="boton-vaciar">Vaciar carrito</button>
+                  </form>
+                
+                  <a href="/checkout">
+                    <button class="boton-pagar">Ir a Pagar</button>
+                  </a>
+                </div>
 
-        <div class="carrito-acciones">
-            <a href="/checkout">
-                <button class="boton-pagar">Ir a Pagar</button>
-            </a>
-        </div>
+        <% } %>
 
     </main>
 
