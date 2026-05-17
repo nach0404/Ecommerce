@@ -134,6 +134,7 @@ img {
 }
 
 .header-login,
+.header-products:hover,
 .header-register {
   font-size: 14px;
   font-weight: 500;

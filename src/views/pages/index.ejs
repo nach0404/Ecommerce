@@ -66,10 +66,13 @@
     <h3 class="titulo-productos">Te podría interesar</h3>
 
     <section class="productos-grid">
-      <% products.forEach(product => { %>
-        <%- include('../partials/productCard', { product }) %>
-      <% }) %>
-    </section>
+
+   <% suggestedProducts.forEach(product => { %>
+
+    <%- include('../partials/productCard', { product }) %>
+   <% }) %>
+
+</section>
 
   </main>
 

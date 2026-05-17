@@ -28,10 +28,24 @@ app.use(express.urlencoded({ extended: true }));
 
 // HOME
 app.get('/', (req, res) => {
+
+  const suggestedProducts = products.slice(0, 5);
+
   res.render('pages/index', {
     products,
-    categorias
+    categorias,
+    suggestedProducts
   });
+
+});
+
+// TODOS LOS PRODUCTOS
+app.get('/products', (req, res) => {
+
+  res.render('pages/products', {
+    products
+  });
+
 });
 
 // DETALLE DE PRODUCTO
