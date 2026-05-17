@@ -1,9 +1,9 @@
 /* Variables globales */
 :root {
-  --color-primary: #c27b57;       /*  color principal */
+  --color-primary: #4A7C6F;       /*  color principal */
   --color-dark: #222;          /*  botones, footer */
-  --color-bg: #f2f2f2;            /*  fondo general */
-  --color-white: #ddd;         /*  cards, formularios */
+  --color-bg: #F8F7F4;            /*  fondo general */
+  --color-white: #eee;         /*  cards, formularios */
   --color-text: #2b2b2b;          /* texto principal */
   --color-text-muted: #999999;    /* texto secundario */
   --color-border: #e0e0e0;        /* bordes suaves */
@@ -59,7 +59,7 @@ img {
 /* ---HEADER--- */
 
 .header {
-  background-color: var(--color-white);
+  background-color: var(--color-bg);
   display: flex;
   align-items: center;
   gap: 16px;

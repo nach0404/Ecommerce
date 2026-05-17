@@ -2,7 +2,7 @@
 
 ## [Sprint 2]
 
-## 16-05-2026
+## 16-05-2026 - Nacho
 
 ### Agregado
 - Estructura MVC: reorganizacion del proyecto en `src/` y `public/`
@@ -18,3 +18,9 @@
 ### Modificado
 - Rutas de archivos estaticos actualizados a `/assets/...`
 - `app.js` actualizado con `path.join` y middleware 404
+
+
+## 17-05-2026 - Nacho
+
+### Modificado
+- Actualizacion del archivo `checkout.ejs` a vista temporal, sin logica de negocio.
