@@ -182,3 +182,35 @@
 .boton-confirmar:hover {
   background-color: var(--color-primary);
 }
+
+/*========== CSS TEMPORAL ===========*/
+
+.container-temporal {
+  text-align: left;
+  padding: 4rem 4rem;
+  color: var(--color-dark);
+}
+
+.container-temporal h1 {
+  font-size: 3rem;
+}
+
+.container-temporal h2 {
+  font-size: 2rem;
+  margin-bottom: 28px;
+}
+
+.btn-volver, .btn-volver-inicio {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  margin-right: 25px;
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.btn-volver:hover, .btn-volver-inicio:hover {
+  background-color: var(--color-primary);
+}

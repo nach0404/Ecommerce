@@ -2,7 +2,7 @@
 .caja-iconos {
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-dark);
+  background-color: var(--color-primary);
   padding: 20px 32px;
   margin: 0 32px 24px 32px;
   border-radius: var(--border-radius);
