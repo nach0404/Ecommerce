@@ -24,3 +24,4 @@
 
 ### Modificado
 - Actualizacion del archivo `checkout.ejs` a vista temporal, sin logica de negocio.
+- Cambio del color principal.
