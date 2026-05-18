@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>
+    Categoría - <%= category %>
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="/assets/css/styles.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="/assets/css/index.css"
+  >
+
+</head>
+
+<body>
+
+  <%- include('../partials/header') %>
+
+  <main class="categoria-page">
+
+    <h1>
+      Categoría:
+      <%= category %>
+    </h1>
+
+    <% if (filteredProducts.length > 0) { %>
+
+      <section class="productos-grid">
+
+        <% filteredProducts.forEach(product => { %>
+
+          <%- include(
+            '../partials/productCard',
+            { product }
+          ) %>
+
+        <% }) %>
+
+      </section>
+
+    <% } else { %>
+
+      <p>
+        No hay productos en esta categoría.
+      </p>
+
+    <% } %>
+
+  </main>
+
+  <%- include('../partials/footer') %>
+
+</body>
+
+</html>

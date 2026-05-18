@@ -88,6 +88,27 @@ app.get('/products/:id', (req, res) => {
 
 });
 
+// PRODUCTOS POR CATEGORIA
+app.get('/categories/:category', (req, res) => {
+
+  const category = req.params.category;
+
+  const filteredProducts = products.filter(product => {
+
+    return (
+      product.category.toLowerCase() ===
+      category.toLowerCase()
+    );
+
+  });
+
+  res.render('pages/categories', {
+    category,
+    filteredProducts
+  });
+
+});
+
 // OTRAS PÁGINAS
 app.use('/cart', cartRoute);
 

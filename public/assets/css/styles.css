@@ -134,7 +134,6 @@ img {
 }
 
 .header-login,
-.header-products:hover,
 .header-register {
   font-size: 14px;
   font-weight: 500;
@@ -145,6 +144,7 @@ img {
 }
 
 .header-login:hover,
+.header-products:hover,
 .header-register:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
