@@ -22,7 +22,7 @@ const products = [
     category: "Alimentos",
     image: "/assets/imagenes/alimentos-mayonesa.png",
     points: "2000",
-    description: ""
+    description: "Mayonesa Natura. Liviana y Sabrosa. Con jugo de limón."
   },
 
   // BEBIDAS
@@ -116,25 +116,25 @@ const products = [
     category: "Juegos",
     image: "/assets/imagenes/juegos-gta5.png",
     points: "5000",
-    description: ""
+    description: "Experimente éxitos de taquilla de entretenimiento, Grand Theft Auto V y GTA Online — ahora para PlayStation®5."
   },
 
   // AUTOMOTOR
   { id: 16, name: "Aceite de Motor",
     category: "Automotor",
-    image: "",
+    image: "/assets/imagenes/imagen-default.png",
     points: "3500",
     description: "Aceite sintético para motor. Protege el motor y mejora el rendimiento del vehículo."
   },
   { id: 17, name: "Kit de Herramientas",
     category: "Automotor",
-    image: "",
+    image: "/assets/imagenes/automotor-kit-de-herramientas.png",
     points: "8900",
     description: "Set completo de herramientas para el automóvil. Incluye llaves, destornilladores y más."
   },
   { id: 18, name: "Cargador de Batería",
     category: "Automotor",
-    image: "",
+    image: "/assets/imagenes/automotor-cargador-de-bateria.webp",
     points: "6200",
     description: "Cargador inteligente para baterías de autos. Compatible con todos los tipos de baterías de 12V."
   },
@@ -164,19 +164,19 @@ const products = [
   // OTROS
   { id: 22, name: "Tarjeta de Regalo",
     category: "Otros",
-    image: "",
+    image: "/assets/imagenes/imagen-default.png",
     points: "5000",
     description: "Tarjeta de regalo canjeable en toda la tienda. El regalo perfecto cuando no sabés qué elegir."
   },
   { id: 23, name: "Mochila Urbana",
     category: "Otros",
-    image: "",
+    image: "/assets/imagenes/otros-mochila-urbana.webp",
     points: "11000",
     description: "Mochila urbana espaciosa con compartimento para laptop. Resistente al agua y con múltiples bolsillos."
   },
   { id: 24, name: "Set de Regalo",
     category: "Otros",
-    image: "",
+    image: "/assets/imagenes/otros-set-de-regalo.webp",
     points: "15000",
     description: "Set de regalo premium con productos seleccionados. Presentación especial lista para regalar."
   }
