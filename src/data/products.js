@@ -18,6 +18,12 @@ const products = [
     points: "1200",
     description: "Tapas de empanada Rapiditas. Versátiles y fáciles de usar, ideales para cualquier relleno."
   },
+  { id: 26, name: "Mayonesa Natura",
+    category: "Alimentos",
+    image: "/assets/imagenes/alimentos-mayonesa.png",
+    points: "2000",
+    description: ""
+  },
 
   // BEBIDAS
   { id: 4, name: "Whisky Escocés",
@@ -105,6 +111,12 @@ const products = [
     points: "55000",
     description: "Consola Nintendo Switch. Jugá en tu televisor o llevala a donde quieras en modo portátil.",
     featured: true
+  },
+  { id: 25, name: "Juego en físico - GTA5",
+    category: "Juegos",
+    image: "/assets/imagenes/juegos-gta5.png",
+    points: "5000",
+    description: ""
   },
 
   // AUTOMOTOR

@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title> <%= product.name %> - Mi Ecommerce</title>
+
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/product.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
 </head>
+
 <body>
+
     <%- include ('../partials/header') %>
 
     <main class="producto-detalle">
@@ -16,36 +23,103 @@
 
         <div class="producto-detalle-card">
 
-            <!-- Imagen del producto -->
+            <!-- Imagen -->
             <div class="producto-detalle-imagen">
-                <img src="<%= product.image || '/assets/imagenes/default.webp' %>" alt="<%= product.name %>">
+
+                <img
+                  src="<%= product.image || '/assets/imagenes/default.webp' %>"
+                  alt="<%= product.name %>"
+                >
+
             </div>
 
-            <!-- Info del producto -->
+            <!-- Info -->
             <div class="producto-detalle-info">
 
-                <span class="producto-categoria"> <%= product.category %> </span>
+                <span class="producto-categoria">
+                  <%= product.category %>
+                </span>
 
-                <h1> <%= product.name %> </h1>
+                <h1>
+                  <%= product.name %>
+                </h1>
 
-                <p class="producto-descripcion"> <%= product.description %> </p>
+                <p class="producto-descripcion">
+                  <%= product.description %>
+                </p>
 
                 <div class="producto-puntos">
-                    <span class="cantidad-puntos"> <%= product.points %> </span>
-                    <span class="puntos">PUNTOS</span>
+
+                    <span class="cantidad-puntos">
+                      <%= product.points %>
+                    </span>
+
+                    <span class="puntos">
+                      PUNTOS
+                    </span>
+
                 </div>
 
-                <form action="/cart/add/<%= product.id %>" method="POST">
-                    <button type="submit" class="boton-agregar">
+                <form
+                  action="/cart/add/<%= product.id %>"
+                  method="POST"
+                >
+
+                    <button
+                      type="submit"
+                      class="boton-agregar"
+                    >
+
                         <i class="fa-solid fa-cart-plus"></i>
+
                         Agregar al carrito
+
                     </button>
+
                 </form>
+
             </div>
+
         </div>
+
+
+        <!-- Productos relacionados -->
+
+        <section class="relacionados">
+
+          <h2>
+            Productos relacionados
+          </h2>
+
+          <% if (relatedProducts.length > 0) { %>
+
+            <section class="productos-grid">
+
+              <% relatedProducts.forEach(product => { %>
+
+                <%- include(
+                  '../partials/productCard',
+                  { product }
+                ) %>
+
+              <% }) %>
+
+            </section>
+
+          <% } else { %>
+
+            <p>
+              No hay productos relacionados disponibles.
+            </p>
+
+          <% } %>
+
+        </section>
+
     </main>
 
     <%- include ('../partials/footer') %>
     
 </body>
+
 </html>

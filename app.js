@@ -55,13 +55,37 @@ app.get('/products', (req, res) => {
 
 // DETALLE DE PRODUCTO
 app.get('/products/:id', (req, res) => {
-  const product = products.find(p => p.id == req.params.id);
+
+  const product = products.find(
+    p => p.id == req.params.id
+  );
 
   if (!product) {
-    return res.status(404).send("Producto no encontrado");
-  }
 
-  res.render('pages/product', { product });
+  return res
+    .status(404)
+    .render('pages/404');
+
+}
+
+  // PRODUCTOS RELACIONADOS
+  let relatedProducts = products.filter(p => {
+
+    return (
+      p.category === product.category &&
+      p.id !== product.id
+    );
+
+  });
+
+  // máximo 4
+  relatedProducts = relatedProducts.slice(0, 4);
+
+  res.render('pages/product', {
+    product,
+    relatedProducts
+  });
+
 });
 
 // OTRAS PÁGINAS
