@@ -31,10 +31,15 @@ app.get('/', (req, res) => {
 
   const suggestedProducts = products.slice(0, 5);
 
+  const featuredProducts = products
+    .filter(product => product.featured)
+    .slice(0, 10);
+
   res.render('pages/index', {
     products,
     categorias,
-    suggestedProducts
+    suggestedProducts,
+    featuredProducts
   });
 
 });

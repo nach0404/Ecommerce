@@ -74,6 +74,22 @@
 
 </section>
 
+<!-- MÁS PEDIDOS -->
+
+<h3 class="titulo-productos">
+  Los más pedidos
+</h3>
+
+<section class="productos-grid">
+
+  <% featuredProducts.forEach(product => { %>
+
+    <%- include('../partials/productCard', { product }) %>
+
+  <% }) %>
+
+</section>
+
   </main>
 
   <%- include('../partials/footer') %>

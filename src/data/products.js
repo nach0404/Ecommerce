@@ -36,7 +36,8 @@ const products = [
     category: "Bebidas",
     image: "/assets/imagenes/bebidas-cerveza.webp",
     points: "2200",
-    description: "Pack de cervezas Heineken. La clásica lager internacional, ideal para momentos de relax."
+    description: "Pack de cervezas Heineken. La clásica lager internacional, ideal para momentos de relax.",
+    featured: true
   },
 
   // ELECTRONICA
@@ -50,13 +51,15 @@ const products = [
     category: "Electronica",
     image: "/assets/imagenes/electrónica-smartwatch.webp",
     points: "25000",
-    description: "Reloj inteligente con monitor de frecuencia cardíaca, GPS y notificaciones en tiempo real."
+    description: "Reloj inteligente con monitor de frecuencia cardíaca, GPS y notificaciones en tiempo real.",
+    featured: true
   },
   { id: 9, name: "Celular Iphone",
     category: "Electronica",
     image: "/assets/imagenes/electrónica-iphone.webp",
     points: "95000",
-    description: "Smartphone Apple iPhone. Rendimiento excepcional, cámara de alta resolución y diseño premium."
+    description: "Smartphone Apple iPhone. Rendimiento excepcional, cámara de alta resolución y diseño premium.",
+    featured: true
   },
 
   // INDUMENTARIA
@@ -70,13 +73,15 @@ const products = [
     category: "Indumentaria",
     image: "/assets/imagenes/indumentaria-suéter.webp",
     points: "7800",
-    description: "Suéter de abrigo suave y elegante. Perfecto para los días frescos del otoño e invierno."
+    description: "Suéter de abrigo suave y elegante. Perfecto para los días frescos del otoño e invierno.",
+    featured: true
   },
   { id: 12, name: "Blusas",
     category: "Indumentaria",
     image: "/assets/imagenes/indumentaria-blusas.webp",
     points: "4900",
-    description: "Blusas livianas de moda. Diseño moderno y versátil, disponibles en varios colores."
+    description: "Blusas livianas de moda. Diseño moderno y versátil, disponibles en varios colores.",
+    featured: true
   },
 
   // JUEGOS
@@ -84,19 +89,22 @@ const products = [
     category: "Juegos",
     image: "/assets/imagenes/juegos-uno.webp",
     points: "1800",
-    description: "El clásico juego de cartas UNO. Diversión garantizada para toda la familia."
+    description: "El clásico juego de cartas UNO. Diversión garantizada para toda la familia.",
+    featured: true
   },
   { id: 14, name: "Juego de Mesa - Domino",
     category: "Juegos",
     image: "/assets/imagenes/juegos-domino.webp",
     points: "2100",
-    description: "Set completo de dominó. El clásico juego de estrategia para 2 a 4 jugadores."
+    description: "Set completo de dominó. El clásico juego de estrategia para 2 a 4 jugadores.",
+    featured: true
   },
   { id: 15, name: "Nintendo Switch",
     category: "Juegos",
     image: "/assets/imagenes/juegos-nintendo.webp",
     points: "55000",
-    description: "Consola Nintendo Switch. Jugá en tu televisor o llevala a donde quieras en modo portátil."
+    description: "Consola Nintendo Switch. Jugá en tu televisor o llevala a donde quieras en modo portátil.",
+    featured: true
   },
 
   // AUTOMOTOR
@@ -130,13 +138,15 @@ const products = [
     category: "Hogar",
     image: "/assets/imagenes/hogar-mesita auxiliar.webp",
     points: "9500",
-    description: "Mesa auxiliar de madera. Ideal para el living o dormitorio, diseño compacto y elegante."
+    description: "Mesa auxiliar de madera. Ideal para el living o dormitorio, diseño compacto y elegante.",
+    featured: true
   },
   { id: 21, name: "Silla",
     category: "Hogar",
     image: "/assets/imagenes/hogar-silla.webp",
     points: "7200",
-    description: "Silla de comedor resistente y cómoda. Diseño clásico que se adapta a cualquier ambiente."
+    description: "Silla de comedor resistente y cómoda. Diseño clásico que se adapta a cualquier ambiente.",
+    featured: true
   },
 
   // OTROS
