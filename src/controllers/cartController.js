@@ -1,4 +1,4 @@
-const products = require('../data/products');
+const productsService = require('../services/productsService')
 
 // Agregar producto al carrito
 const addToCart = (req, res) => {

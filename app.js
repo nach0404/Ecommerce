@@ -2,10 +2,11 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const cartRoute = require('./src/routes/cartRoute');
+const expressLayouts = require('express-ejs-layouts');
+const productsService = require('./src/services/productsService');
+
 const app = express();
 const PORT = 3000;
-
-const products = require("./src/data/products");
 
 app.use(session({
   secret: 'miecommerce-secret',
@@ -14,13 +15,11 @@ app.use(session({
   cookie: { secure: false }
 }));
 
-// generar categorías dinámicas
-const categorias = [...new Set(products.map(p => p.category))];
-
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
+app.set('layout', 'layouts/main');
 app.set('views', path.join(__dirname, 'src/views'));
 
-//Archivos estaticos
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
@@ -35,121 +34,55 @@ app.use((req, res, next) => {
 
 // HOME
 app.get('/', (req, res) => {
-
-  const suggestedProducts = products.slice(0, 5);
-
-  const featuredProducts = products
-    .filter(product => product.featured)
-    .slice(0, 10);
-
   res.render('pages/index', {
-    products,
-    categorias,
-    suggestedProducts,
-    featuredProducts
+    products: productsService.getAllProducts(),
+    categorias: productsService.getCategories(),
+    suggestedProducts: productsService.getSuggestedProducts(),
+    featuredProducts: productsService.getFeaturedProducts()
   });
-
 });
 
 // TODOS LOS PRODUCTOS
 app.get('/products', (req, res) => {
-
   res.render('pages/products', {
-    products
+    products: productsService.getAllProducts()
   });
-
 });
 
 // DETALLE DE PRODUCTO
 app.get('/products/:id', (req, res) => {
+  const product = productsService.getProductById(req.params.id);
 
-  const product = products.find(
-    p => p.id == req.params.id
-  );
-
-  if (!product) {
-
-  return res
-    .status(404)
-    .render('pages/404');
-
-}
-
-  // PRODUCTOS RELACIONADOS
-  let relatedProducts = products.filter(p => {
-
-    return (
-      p.category === product.category &&
-      p.id !== product.id
-    );
-
-  });
-
-  // máximo 4
-  relatedProducts = relatedProducts.slice(0, 4);
+  if (!product) return res.status(404).render('pages/404');
 
   res.render('pages/product', {
     product,
-    relatedProducts
+    relatedProducts: productsService.getRelatedProducts(req.params.id, product.category)
   });
-
 });
 
 // PRODUCTOS POR CATEGORIA
 app.get('/categories/:category', (req, res) => {
-
-  const category = req.params.category;
-
-  const filteredProducts = products.filter(product => {
-
-    return (
-      product.category.toLowerCase() ===
-      category.toLowerCase()
-    );
-
-  });
-
   res.render('pages/categories', {
-    category,
-    filteredProducts
+    category: req.params.category,
+    filteredProducts: productsService.getProductsByCategory(req.params.category)
   });
-
 });
 
-// OTRAS PÁGINAS
+// OTRAS PAGINAS
 app.use('/cart', cartRoute);
 
-app.get('/checkout', (req, res) => {
-  res.render('pages/checkout');
-});
+app.get('/checkout', (req, res) => res.render('pages/checkout'));
+app.get('/register', (req, res) => res.render('pages/register'));
+app.get('/login', (req, res) => res.render('pages/login'));
 
-app.get('/register', (req, res) => {
-  res.render('pages/register');
-});
-
-app.get('/login', (req, res) => {
-  res.render('pages/login');
-});
-
-// Ruta de prueba para el error 500
-/*
-app.get('/test-error', (req, res, next) => {
-  next(new Error('Error de prueba'));
-})
-*/
-
-
-// middleware error 404 y 500
-app.use((req, res) => {
-  res.status(404).render('pages/404');
-});
-
+// Middleware error 404 y 500
+app.use((req, res) => res.status(404).render('pages/404'));
 app.use((err, req, res, next) => {
   console.log(err.stack);
   res.status(500).render('pages/500');
 });
 
-// SERVER
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

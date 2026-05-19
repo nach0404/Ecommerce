@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Mi Ecommerce</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/styles.css">
-  <link rel="stylesheet" href="/assets/css/index.css">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
-</head>
-<body>
-
-  <%- include('../partials/header') %>
+<% style = '<link rel="stylesheet" href="/assets/css/index.css">' %>
 
   <main>
 
@@ -67,32 +51,27 @@
 
     <section class="productos-grid">
 
-   <% suggestedProducts.forEach(product => { %>
+      <% suggestedProducts.forEach(product => { %>
+  
+       <%- include('../partials/productCard', { product }) %>
+      <% }) %>
 
-    <%- include('../partials/productCard', { product }) %>
-   <% }) %>
+    </section>
+    
+    <!-- MÁS PEDIDOS -->
+    
+    <h3 class="titulo-productos">
+      Los más pedidos
+    </h3>
+    
+    <section class="productos-grid">
+    
+      <% featuredProducts.forEach(product => { %>
+    
+        <%- include('../partials/productCard', { product }) %>
+    
+      <% }) %>
+    
+    </section>
 
-</section>
-
-<!-- MÁS PEDIDOS -->
-
-<h3 class="titulo-productos">
-  Los más pedidos
-</h3>
-
-<section class="productos-grid">
-
-  <% featuredProducts.forEach(product => { %>
-
-    <%- include('../partials/productCard', { product }) %>
-
-  <% }) %>
-
-</section>
-
-  </main>
-
-  <%- include('../partials/footer') %>
-
-</body>
-</html>
+</main>
