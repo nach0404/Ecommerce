@@ -131,8 +131,22 @@ app.get('/login', (req, res) => {
   res.render('pages/login');
 });
 
+// Ruta de prueba para el error 500
+/*
+app.get('/test-error', (req, res, next) => {
+  next(new Error('Error de prueba'));
+})
+*/
+
+
+// middleware error 404 y 500
 app.use((req, res) => {
   res.status(404).render('pages/404');
+});
+
+app.use((err, req, res, next) => {
+  console.log(err.stack);
+  res.status(500).render('pages/500');
 });
 
 // SERVER
