@@ -36,6 +36,6 @@ module.exports = {
     getProductById,
     getSuggestedProducts,
     getFeaturedProducts,
-    getProductsByCategory,
+    getProductByCategory,
     getRelatedProducts
 };

@@ -4,6 +4,7 @@ const session = require('express-session');
 const cartRoute = require('./src/routes/cartRoute');
 const expressLayouts = require('express-ejs-layouts');
 const productsService = require('./src/services/productsService');
+const cartService = require('./src/services/cartService');
 
 const app = express();
 const PORT = 3000;
@@ -25,8 +26,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware total del carrito
 app.use((req, res, next) => {
-  const cart = req.session.cart || [];
-  res.locals.cartTotal = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const cartItems = cartService.getCart(req.session);
+  res.locals.cartTotal = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   next();
 });
 
@@ -65,7 +66,7 @@ app.get('/products/:id', (req, res) => {
 app.get('/categories/:category', (req, res) => {
   res.render('pages/categories', {
     category: req.params.category,
-    filteredProducts: productsService.getProductsByCategory(req.params.category)
+    filteredProducts: productsService.getProductByCategory(req.params.category)
   });
 });
 
