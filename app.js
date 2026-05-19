@@ -24,6 +24,13 @@ app.set('views', path.join(__dirname, 'src/views'));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
+// Middleware total del carrito
+app.use((req, res, next) => {
+  const cart = req.session.cart || [];
+  res.locals.cartTotal = cart.reduce((acc, item) => acc + item.quantity, 0);
+  next();
+});
+
 // -- RUTAS --
 
 // HOME

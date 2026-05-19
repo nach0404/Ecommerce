@@ -127,10 +127,28 @@ img {
   font-size: 22px;
   color: var(--color-dark);
   transition: color 0.2s;
+  position: relative;
 }
 
 .header-carrito:hover {
   color: var(--color-primary);
+}
+
+.carrito-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
 }
 
 .header-login,
