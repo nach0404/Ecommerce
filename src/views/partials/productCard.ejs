@@ -1,12 +1,14 @@
-<section class="caja-producto">
+<section class="caja-producto" <%= product.stock === 0 ? 'sin-stock' : '' %>>
   <a href="/products/<%= product.id %>">
-
     <div class="producto">
       <img 
-        src="<%= product.image %>" 
-        alt="<%= product.name %>"
-        loading="lazy"
+      src="<%= product.image %>" 
+      alt="<%= product.name %>"
+      loading="lazy"
       >
+      <% if(product.stock === 0) { %>
+        <span class="badge-sin-stock">Sin stock</span>
+      <% } %>
     </div>
 
     <div class="descripcion">

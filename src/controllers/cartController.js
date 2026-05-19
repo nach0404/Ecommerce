@@ -7,6 +7,9 @@ const addToCart = (req, res) => {
 
     if (!product) return res.status(404).send("Producto no encontrado");
 
+    // Validar stock
+    if (product.stock === 0) return res.redirect('/cart');
+
     if (!req.session.cart) req.session.cart = [];
 
     const itemExistente = req.session.cart.find(item => item.productId === productId);

@@ -60,23 +60,19 @@
 
                 </div>
 
-                <form
-                  action="/cart/add/<%= product.id %>"
-                  method="POST"
-                >
-
-                    <button
-                      type="submit"
-                      class="boton-agregar"
-                    >
-
-                        <i class="fa-solid fa-cart-plus"></i>
-
-                        Agregar al carrito
-
+                <% if (product.stock === 0) { %>
+                  <button class="boton-agregar" disabled>
+                    <i class="fa-solid fa-ban"></i>
+                    Sin stock
+                  </button>
+                <% } else { %>
+                  <form action="/cart/add/<%= product.id %>" method="POST">
+                    <button type="submit" class="boton-agregar">
+                      <i class="fa-solid fa-cart-plus"></i>
+                      Agregar al carrito
                     </button>
-
-                </form>
+                  </form>
+                <% } %>
 
             </div>
 

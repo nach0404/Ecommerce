@@ -213,3 +213,32 @@ img {
 .volver:hover {
   color: var(--color-primary);
 }
+
+/* Sin stock */
+.sin-stock {
+  opacity: 0.5;
+}
+
+.badge-sin-stock {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: #c0392b;
+  color: var(--color-white);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.producto {
+  position: relative;
+}
+
+.boton-agregar:disabled {
+  background-color: var(--color-border);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
