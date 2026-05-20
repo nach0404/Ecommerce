@@ -1,20 +1,20 @@
-<% style = '<link rel="stylesheet" href="/assets/css/index.css">' %>
-<% style = '<link rel="stylesheet" href="/assets/css/productCard.css">' %>
+<% style = '<link rel="stylesheet" href="/assets/css/products.css"><link rel="stylesheet" href="/assets/css/index.css">' %>
 
-  <main>
+<main>
 
-    <h1 class="titulo-productos">
-      Todos los productos
-    </h1>
+    <h1 class="titulo-productos">Todos los productos</h1>
+
+    <div class="orden-container">
+        <span>Ordenar por precio:</span>
+        <a href="/products" class="orden-btn <%= !sort ? 'activo' : '' %>">Sin orden</a>
+        <a href="/products?sort=asc" class="orden-btn <%= sort === 'asc' ? 'activo' : '' %>">Menor a mayor</a>
+        <a href="/products?sort=desc" class="orden-btn <%= sort === 'desc' ? 'activo' : '' %>">Mayor a menor</a>
+    </div>
 
     <section class="productos-grid">
-
-      <% products.forEach(product => { %>
-
-        <%- include('../partials/productCard', { product }) %>
-
-      <% }) %>
-
+        <% products.forEach(product => { %>
+            <%- include('../partials/productCard', { product }) %>
+        <% }) %>
     </section>
 
-  </main>
+</main>

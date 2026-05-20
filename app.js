@@ -45,8 +45,11 @@ app.get('/', (req, res) => {
 
 // TODOS LOS PRODUCTOS
 app.get('/products', (req, res) => {
+  const sort = req.query.sort;
+
   res.render('pages/products', {
-    products: productsService.getAllProducts()
+    products: productsService.getSortedProducts(sort),
+    sort
   });
 });
 

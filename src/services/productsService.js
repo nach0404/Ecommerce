@@ -30,9 +30,23 @@ const getRelatedProducts = (productId, category) =>
     .filter(p => p.category === category && p.id !== parseInt(productId))
     .slice(0, 4);
 
+// Normalizar y validar ID
 const normalizeId = (id) => {
     const parsed = parseInt(id);
     return isNaN(parsed) ? null : parsed;
+};
+
+// Productos ordenados por puntos
+const getSortedProducts = (sort) => {
+    const sorted = [...products];
+
+    if (sort === 'asc') {
+        sorted.sort((a, b) => parseInt(a.points) - parseInt(b.points));
+    } else if (sort === 'desc') {
+        sorted.sort((a, b) => parseInt(b.points) - parseInt(a.points));
+    }
+
+    return sorted;
 };
 
 module.exports = {
@@ -43,5 +57,6 @@ module.exports = {
     getFeaturedProducts,
     getProductByCategory,
     getRelatedProducts,
-    normalizeId
+    normalizeId,
+    getSortedProducts
 };
