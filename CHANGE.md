@@ -25,3 +25,24 @@
 ### Modificado
 - Actualizacion del archivo `checkout.ejs` a vista temporal, sin logica de negocio.
 - Cambio del color principal.
+
+## 19-05-2026 - Nacho
+
+### Agregado
+- `express-ejs-layouts`: layout base en `src/views/layouts/main.ejs` con `<%- body %>` y `<%- style %>`
+- `src/services/productsService.js`: servicio con toda la lógica de lectura y filtrado de productos
+- `src/services/cartService.js`: servicio con toda la lógica del carrito (agregar, quitar, modificar, vaciar, calcular total)
+- Función `normalizeId()` en `productsService.js`: valida IDs numéricos antes de usarlos (400 si inválido, 404 si no existe)
+- Ordenamiento de productos por precio en `/products?sort=asc` y `/products?sort=desc`
+- Buscador de productos por nombre con coincidencia parcial en `/search?query=...`
+- Vista `search.ejs` con resultados o mensaje de no encontrado
+- `public/assets/css/products.css`: estilos para la página de listado de productos
+- `public/assets/css/search.css`: estilos para la página de resultados de búsqueda
+
+### Modificado
+- Vistas limpias para usar el layout (sin `<!DOCTYPE>`, sin header/footer duplicados)
+- `login.ejs` y `register.ejs` con `<% layout = false %>` para excluirse del layout
+- `cartController.js`: simplificado para delegar toda la lógica al servicio
+- `app.js`: rutas simplificadas usando `productsService` y `cartService`
+- `header.ejs`: formulario de búsqueda conectado a `/search`
+- `products.ejs`: selector de orden por precio
