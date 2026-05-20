@@ -30,6 +30,11 @@ const getRelatedProducts = (productId, category) =>
     .filter(p => p.category === category && p.id !== parseInt(productId))
     .slice(0, 4);
 
+const normalizeId = (id) => {
+    const parsed = parseInt(id);
+    return isNaN(parsed) ? null : parsed;
+};
+
 module.exports = {
     getAllProducts,
     getCategories,
@@ -37,5 +42,6 @@ module.exports = {
     getSuggestedProducts,
     getFeaturedProducts,
     getProductByCategory,
-    getRelatedProducts
+    getRelatedProducts,
+    normalizeId
 };

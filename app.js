@@ -52,13 +52,17 @@ app.get('/products', (req, res) => {
 
 // DETALLE DE PRODUCTO
 app.get('/products/:id', (req, res) => {
-  const product = productsService.getProductById(req.params.id);
+  const id = productsService.normalizeId(req.params.id);
+
+  if (id === null) return res.status(400).render('pages/404');
+
+  const product = productsService.getProductById(id);
 
   if (!product) return res.status(404).render('pages/404');
 
   res.render('pages/product', {
     product,
-    relatedProducts: productsService.getRelatedProducts(req.params.id, product.category)
+    relatedProducts: productsService.getRelatedProducts(id, product.category)
   });
 });
 
