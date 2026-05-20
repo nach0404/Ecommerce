@@ -1,0 +1,35 @@
+/* Buscador */
+.titulo-productos {
+    padding: 24px 24px 0 24px;
+    font-size: 2rem !important;
+    font-weight: 700;
+    color: #222;
+}
+
+.cantidad-resultados {
+    padding: 0 24px;
+    margin-bottom: 16px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.sin-resultado {
+    padding: 48px 24px;
+    text-align: center;
+    color: #555;
+}
+
+.sin-resultado p {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+.sin-resultado a {
+    color: #009ee3;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.sin-resultado a:hover {
+    text-decoration: underline;
+}

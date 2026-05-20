@@ -111,3 +111,7 @@
 .boton-agregar:hover {
   background-color: var(--color-primary);
 }
+
+.relacionados h2 {
+  margin: 10px 0 10px 30px;
+}

@@ -49,6 +49,14 @@ const getSortedProducts = (sort) => {
     return sorted;
 };
 
+// Buscar productos por nombre
+const searchProducts = (query) => {
+    if(!query || query.trim() === '') return [];
+    return products.filter(p => 
+        p.name.toLocaleLowerCase().includes(query.toLocaleLowerCase().trim())
+    );
+};
+
 module.exports = {
     getAllProducts,
     getCategories,
@@ -58,5 +66,6 @@ module.exports = {
     getProductByCategory,
     getRelatedProducts,
     normalizeId,
-    getSortedProducts
+    getSortedProducts,
+    searchProducts
 };

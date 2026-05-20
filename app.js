@@ -77,6 +77,14 @@ app.get('/categories/:category', (req, res) => {
   });
 });
 
+// BUSCADOR
+app.get('/search', (req, res) => {
+  const query = req.query.query;
+  const results = productsService.searchProducts(query);
+
+  res.render('pages/search', { results, query});
+});
+
 // OTRAS PAGINAS
 app.use('/cart', cartRoute);
 

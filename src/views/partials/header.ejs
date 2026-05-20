@@ -5,13 +5,17 @@
   </a>
 
   <!-- buscador -->
-  <div class="header-buscador">
-    <input type="text" placeholder="Buscar productos...">
-
-    <button type="button">
+  <form action="/search" class="header-buscador" method="GET">
+    <input 
+        type="text"
+        name="query"
+        placeholder="Buscar productos..."
+        autocomplete="off"    
+    >
+    <button type="submit">
       <i class="fa-solid fa-magnifying-glass"></i>
     </button>
-  </div>
+  </form>
 
   <!-- navegacion -->
   <nav class="header-acciones">

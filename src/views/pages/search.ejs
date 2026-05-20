@@ -1,0 +1,28 @@
+<% style = '<link rel="stylesheet" href="/assets/css/index.css"><link rel="stylesheet" href="/assets/css/search.css"><link rel="stylesheet" href="/assets/css/productCard.css">' %>
+
+<main>
+
+    <h1 class="titulo-productos">
+        Resultado para: "<%= query %>"
+    </h1>
+
+    <% if (results.length === 0) { %>
+
+        <div class="sin-resultado">
+            <p>No se encontro ningun producto que coincida con "<strong><%= query %></strong>".</p>
+            <a href="/products">Ver todos los productos</a>
+        </div>
+
+    <% } else { %>
+
+        <p class="cantidad-resultados"><%= results.length %> producto(s) encontrado(s)</p>
+
+        <section class="productos-grid">
+            <% results.forEach(product => { %>
+                <%- include('../partials/productCard', { product }) %>
+            <% }) %>
+        </section>
+
+    <% } %>
+
+</main>
