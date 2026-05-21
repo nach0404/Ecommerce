@@ -7,8 +7,13 @@ const getCart = (session) => session.cart || [];
 const addProduct = (session, productId) => {
     const product = productsService.getProductById(productId);
 
-    if (!product) return res.status(404).send("Producto no encontrado");
-    if (product.stock === 0) return { error: 'Sin stock' };
+    if (!product) {
+    return { error: 'Producto no encontrado' };
+}
+
+if (product.stock === 0) {
+    return { error: 'Sin stock' };
+}
 
     if (!session.cart) session.cart = [];
 
