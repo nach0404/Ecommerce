@@ -46,3 +46,25 @@
 - `app.js`: rutas simplificadas usando `productsService` y `cartService`
 - `header.ejs`: formulario de búsqueda conectado a `/search`
 - `products.ejs`: selector de orden por precio
+
+
+## [Sprint 3]
+
+## 21-05-2026 - Nacho
+
+### Agregado
+- `src/controllers/productController.js`: controlador de productos con validación de IDs
+- `src/routes/productRoute.js`: rutas de productos conectadas al controlador
+
+### Modificado
+- `src/services/productsService.js`: migración completa de JSON a SQLite, todas las funciones usan SQL
+- `src/services/cartService.js`: validación de productos contra la base de datos
+- `src/controllers/cartController.js`: actualizado para usar el nuevo formato de normalizeId()
+- `normalizeId()`: ahora valida que el ID sea numérico (400) y que exista en la BD (404)
+- `src/db/schema.sql`: tabla users actualizada con password_hash y created_at
+- `app.js`: rutas de productos reorganizadas usando productRoute
+
+### Eliminado
+- `src/data/products.js`: datos migrados a SQLite, archivo eliminado
+- `src/db/migrate.js`: script de migración ejecutado y eliminado
+- Toda dependencia de archivos JSON en el proyecto
