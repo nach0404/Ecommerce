@@ -60,6 +60,7 @@
 
 .form-group input:focus {
   border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .auth-form button[type="submit"] {

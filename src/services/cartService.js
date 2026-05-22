@@ -56,7 +56,7 @@ const clearCart = (session) => {
 // Items enriquecidos con datos del producto
 const getCartItems = (session) => {
     const cart = getCart(session);
-
+    
     return cart.map(item => {
         const product = productsService.getProductById(item.productId);
         return {

@@ -1,15 +1,13 @@
 const cartService = require('../services/cartService');
-const { normalizeId } = require('../services/productsService');
+const productsService = require('../services/productsService');
 
 // Agregar producto al carrito
 const addToCart = (req, res) => {
-    const productId = normalizeId(req.params.id);
+    const result = productsService.normalizeId(req.params.id);
+    if (result.error) return res.status(result.error).send(result.message);
 
-    if (productId === null) return res.status(400).send('ID inválido');
-
-    const result = cartService.addProduct(req.session, productId);
-
-    if (result?.error) return res.status(404).send(result.error);
+    const cart = cartService.addProduct(req.session, result.id);
+    if (cart?.error) return res.status(404).send(cart.error);
 
     res.redirect('/cart');
 };
@@ -24,19 +22,19 @@ const getCart = (req, res) => {
 
 // Aumentar cantidad
 const increaseQuantity = (req, res) => {
-    const productId = normalizeId(req.params.id);
-    if (productId === null) return res.status(400).send('ID inválido');
+    const result = productsService.normalizeId(req.params.id);
+    if (result.error) return res.status(result.error).send(result.message);
 
-    cartService.increaseProduct(req.session, productId);
+    cartService.increaseProduct(req.session, result.id);
     res.redirect('/cart');
 };
 
 // Disminuir cantidad
 const decreaseQuantity = (req, res) => {
-    const productId = normalizeId(req.params.id);
-    if (productId === null) return res.status(400).send('ID inválido');
+    const result = productsService.normalizeId(req.params.id);
+    if (result.error) return res.status(result.error).send(result.message);
 
-    cartService.decreaseProduct(req.session, productId);
+    cartService.decreaseProduct(req.session, result.id);
     res.redirect('/cart');
 };
 

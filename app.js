@@ -5,6 +5,7 @@ const cartRoute = require('./src/routes/cartRoute');
 const expressLayouts = require('express-ejs-layouts');
 const productsService = require('./src/services/productsService');
 const cartService = require('./src/services/cartService');
+const productRoute = require ('./src/routes/productRoute');
 
 const app = express();
 const PORT = 3000;
@@ -43,6 +44,9 @@ app.get('/', (req, res) => {
   });
 });
 
+// DETALLE DE PRODUCTO
+app.use('/products', productRoute);
+
 // TODOS LOS PRODUCTOS
 app.get('/products', (req, res) => {
   const sort = req.query.sort;
@@ -50,22 +54,6 @@ app.get('/products', (req, res) => {
   res.render('pages/products', {
     products: productsService.getSortedProducts(sort),
     sort
-  });
-});
-
-// DETALLE DE PRODUCTO
-app.get('/products/:id', (req, res) => {
-  const id = productsService.normalizeId(req.params.id);
-
-  if (id === null) return res.status(400).render('pages/404');
-
-  const product = productsService.getProductById(id);
-
-  if (!product) return res.status(404).render('pages/404');
-
-  res.render('pages/product', {
-    product,
-    relatedProducts: productsService.getRelatedProducts(id, product.category)
   });
 });
 

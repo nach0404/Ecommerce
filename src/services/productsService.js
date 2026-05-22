@@ -30,9 +30,15 @@ const productsService = {
 
     const parsed = parseInt(id);
 
-    return isNaN(parsed)
-      ? null
-      : parsed;
+    // Validacion 1: es un numero?
+    if (isNaN(parsed)) { return { error: 400, message: 'ID invalido '} };
+
+    const product = this.getProductById(parsed);
+
+    //Validacion 2: existe en la BD?
+    if (!product) { return { error: 404, message: 'Producto no encontrado'} };
+
+    return { id: parsed };
 
   },
 
