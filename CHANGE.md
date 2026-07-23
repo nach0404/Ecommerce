@@ -68,3 +68,17 @@
 - `src/data/products.js`: datos migrados a SQLite, archivo eliminado
 - `src/db/migrate.js`: script de migración ejecutado y eliminado
 - Toda dependencia de archivos JSON en el proyecto
+
+## [Sprint 4]
+
+## 23-07-2026 - Nacho
+
+### Agregado
+- `cors`: instalado y configurado para permitir peticiones desde otros orígenes
+- `express.json()`: middleware para parsear body en formato JSON
+- `src/controllers/api/productsApiController.js`: controlador API con GET, POST, PUT y DELETE de productos
+- `src/routes/api/productsApiRoute.js`: rutas API bajo `/api/products`
+- `createProduct()`, `updateProduct()`, `deleteProduct()`, `countProducts()`: nuevos métodos en `productsService.js`
+
+### Modificado
+- `app.js`: agregados middlewares `cors` y `express.json()`, registrada ruta `/api/products`

@@ -127,7 +127,60 @@ const productsService = {
 
     return db.prepare(query).all();
 
-  }
+  },
+
+  // Crear productos
+
+  createProduct(data) {
+    const stmt = db.prepare(`
+      INSERT INTO products (name, category, image, points, description, featured)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `);
+
+    const result = stmt.run (
+      data.name,
+      data.category,
+      data.image,
+      data.points,
+      data.description,
+      data.featured ? 1 : 0
+    );
+
+    return this.getProductById(result.lastInsertRowid);
+  },
+
+  // Actualizar productos
+  updateProduct(id, data) {
+    const stmt = db.prepare(`
+      UPDATE products
+      SET name = ?, category = ?, image = ?, points = ?, description = ?, featured = ?
+      WHERE id = ?
+      `);
+
+      stmt.run(
+        data.name,
+        data.category,
+        data.image,
+        data.points,
+        data.description,
+        data.featured ? 1 : 0,
+        id
+      );
+
+      return this.getProductById(id);
+  },
+
+  // Eliminar productos
+  deleteProduct(id) {
+    const stmt = db.prepare(`DELETE FROM products WHERE id = ?`);
+    return stmt.run(id);
+  },
+
+  // Contar productos
+  countProducts() {
+    const stmt = db.prepare(`SELECT COUNT(*) AS total FROM products`);
+    return stmt.get().total;
+  },
 
 };
 

@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
@@ -6,9 +7,14 @@ const expressLayouts = require('express-ejs-layouts');
 const productsService = require('./src/services/productsService');
 const cartService = require('./src/services/cartService');
 const productRoute = require ('./src/routes/productRoute');
+const productsApiRoute = require('./src/routes/api/productsApiRoute');
 
 const app = express();
 const PORT = 3000;
+
+// Middleware Cors
+app.use(cors());
+app.use(express.json());
 
 app.use(session({
   secret: 'miecommerce-secret',
@@ -79,6 +85,9 @@ app.use('/cart', cartRoute);
 app.get('/checkout', (req, res) => res.render('pages/checkout'));
 app.get('/register', (req, res) => res.render('pages/register'));
 app.get('/login', (req, res) => res.render('pages/login'));
+
+// -- API --
+app.use('/api/products', productsApiRoute);
 
 // Middleware error 404 y 500
 app.use((req, res) => res.status(404).render('pages/404'));
