@@ -9,6 +9,7 @@ const cartService = require('./src/services/cartService');
 const productRoute = require ('./src/routes/productRoute');
 const productsApiRoute = require('./src/routes/api/productsApiRoute');
 const categoriesApiRoutes = require("./src/routes/api/categoriesApiRoutes");
+const statsApiRoutes = require("./src/routes/api/statsApiRoutes");
 
 const app = express();
 const PORT = 3000;
@@ -89,10 +90,8 @@ app.get('/login', (req, res) => res.render('pages/login'));
 
 // -- API --
 app.use('/api/products', productsApiRoute);
-app.use(
-    "/api/categories",
-    categoriesApiRoutes
-);
+app.use("/api/categories", categoriesApiRoutes);
+app.use("/api/stats", statsApiRoutes);
 
 // Middleware error 404 y 500
 app.use((req, res) => res.status(404).render('pages/404'));
